@@ -13,6 +13,8 @@ Allow for multiple contacts for each person (multiple Phone Numbers, Addresses a
 
 */
 
+var firebaseUrl = "https://glowing-fire-7170.firebaseio.com/Contacts/.json";
+
 var Contact = function (name, phone, address, email) {
     this.name = name;
     this.phone = phone;
@@ -28,5 +30,28 @@ var createContact = function () {
     var address = document.getElementById('inputAddress').value;
     var email = document.getElementById('inputEmail').value;
     var contactObj = new Contact(name, phone, address, email);
+    PostContact(contactObj);
     // contacts.push(contactObj);
 }
+
+var PostContact = function (contactObj) {
+    var request = new XMLHttpRequest();
+    request.open('POST', firebaseUrl, true);
+    request.onload = function () {
+        console.log(this.response);
+        if (this.status >= 200 && this.status < 400) {
+            
+            console.log("Success!");
+        }else{
+            console.log("Error");
+        }
+        contacts.push(contactObj);
+        displayContacts();
+    }
+    request.send(JSON.stringify(contactObj));
+}
+
+var displayContacts = function () {
+    alert("This function is not ready");
+}
+
