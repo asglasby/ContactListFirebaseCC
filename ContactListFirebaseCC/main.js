@@ -34,6 +34,7 @@ var createContact = function () {
     // contacts.push(contactObj);
 }
 
+// Post contact to Firebase using AJAX
 var PostContact = function (contactObj) {
     var request = new XMLHttpRequest();
     request.open('POST', firebaseUrl, true);
@@ -53,5 +54,37 @@ var PostContact = function (contactObj) {
 
 var displayContacts = function () {
     alert("This function is not ready");
+    GetContacts();
 }
+
+// Get contacts from Firebase using AJAX
+var GetContacts = function () {
+    var request = new XMLHttpRequest();
+    request.open('GET', firebaseUrl, true);
+    request.onload = function () {
+        console.log(JSON.parse(this.response));
+        var response = JSON.parse(this.response);
+        for (var prop in response) {
+            console.log(prop);
+            console.log(response.prop);
+            console.log(response[prop]);
+            console.log('---------------------------------------------');
+            contacts.push(response[prop]);
+        }
+        console.log(contacts);
+    }
+    request.send();
+}
+
+
+// Update contact from Firebase using AJAX
+var UpdateContact = function () {
+
+}
+
+// Delete contact from Firebase using AJAX
+var DeleteContact = function () {
+
+}
+
 
