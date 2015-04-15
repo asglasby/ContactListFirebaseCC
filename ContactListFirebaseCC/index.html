@@ -2,8 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Style.css" rel="stylesheet" />
 </head>
 <body>
-
+    <div class="form-inline">
+        Name:<input class="form-control" placeholder="Enter Name" id="inputName" />
+        Phone:<input class="form-control" placeholder="Enter Phone" id="inputPhone" />
+        Address:<input class="form-control" placeholder="Enter Address" id="inputAddress" />
+        Email:<input class="form-control" placeholder="Enter Email" id="inputEmail" />
+        <button class="btn btn-primary" onclick="createContact()">Submit</button>
+    </div>
+    <script src="Scripts/jquery-2.1.3.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
